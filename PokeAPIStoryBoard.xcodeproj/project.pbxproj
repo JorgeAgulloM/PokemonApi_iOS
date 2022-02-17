@@ -22,6 +22,7 @@
 		11E1DBB027BCCE5200B7ABE9 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E1DBAF27BCCE5200B7ABE9 /* Sprite.swift */; };
 		11E1DBB227BCCE8D00B7ABE9 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E1DBB127BCCE8D00B7ABE9 /* Pokemon.swift */; };
 		11E1DBBC27BD062500B7ABE9 /* PokemonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E1DBBB27BD062400B7ABE9 /* PokemonTableViewCell.swift */; };
+		11E1DBBE27BD14AC00B7ABE9 /* Oficial_artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E1DBBD27BD14AC00B7ABE9 /* Oficial_artwork.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		11E1DBAF27BCCE5200B7ABE9 /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
 		11E1DBB127BCCE8D00B7ABE9 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		11E1DBBB27BD062400B7ABE9 /* PokemonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableViewCell.swift; sourceTree = "<group>"; };
+		11E1DBBD27BD14AC00B7ABE9 /* Oficial_artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oficial_artwork.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				11E1DBBB27BD062400B7ABE9 /* PokemonTableViewCell.swift */,
 				11E1DBB127BCCE8D00B7ABE9 /* Pokemon.swift */,
 				11E1DBAF27BCCE5200B7ABE9 /* Sprite.swift */,
+				11E1DBBD27BD14AC00B7ABE9 /* Oficial_artwork.swift */,
 				11E1DBAA27BCCC9100B7ABE9 /* Conection.swift */,
 				11E1DBAD27BCCCCF00B7ABE9 /* Mappable.swift */,
 				11E1DB7727BCCB9500B7ABE9 /* AppDelegate.swift */,
@@ -280,6 +283,7 @@
 				11E1DBB227BCCE8D00B7ABE9 /* Pokemon.swift in Sources */,
 				11E1DBAE27BCCCCF00B7ABE9 /* Mappable.swift in Sources */,
 				11E1DBBC27BD062500B7ABE9 /* PokemonTableViewCell.swift in Sources */,
+				11E1DBBE27BD14AC00B7ABE9 /* Oficial_artwork.swift in Sources */,
 				11E1DBAB27BCCC9100B7ABE9 /* Conection.swift in Sources */,
 				11E1DB7C27BCCB9500B7ABE9 /* ViewController.swift in Sources */,
 				11E1DBB027BCCE5200B7ABE9 /* Sprite.swift in Sources */,

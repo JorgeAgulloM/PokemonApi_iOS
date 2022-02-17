@@ -55,4 +55,26 @@ class Conection {
         task.resume()
     }
     
+    func getArt(with urlString: String, completion: @escaping (_ other: UIImage?) -> Void) {
+        guard let url = URL(string: urlString) else {
+            completion(nil)
+            return
+        }
+        
+        let urlSession = URLSession(configuration: URLSessionConfiguration.default)
+        let task = urlSession.dataTask(with: url) {
+            data, respose, error in
+            
+            if (respose as! HTTPURLResponse).statusCode == 200 { }
+            
+            if error == nil, let data = data {
+                completion(UIImage(data: data))
+            } else {
+                completion(nil)
+                return
+            }
+        }
+        task.resume()
+    }
+    
 }
