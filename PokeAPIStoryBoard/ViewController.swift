@@ -19,8 +19,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var pokemonsList: Array<Pokemon> = []
     
+    //Variables de control
     let ID_POKEMON_MIN: Int = 1
     let ID_POKEMON_MAX: Int = 50//898
+    var pokemonsDownLoad: Int = 0
+    var CompleteDownload: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,59 +31,74 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         myTableView.delegate = self
         myTableView.dataSource = self
         
+        //Lanza la carga de los pokemon
         loadPokemons()
+        
     }
     
+    //Lanza las conexiones para cada pokemon. En la variable de control pokemonsDownLoad se lleva la cuenta de los pokemons recuperados o su intento.
     func loadPokemons() {
+        //Función de puesta a 0
         startStop()
-        var pokemonsList: Array<Pokemon> = []
             for id in 1...self.ID_POKEMON_MAX {
                 Conection().getPokemon(withId: id) {
                     pokemon in
                     
                     if let pokemon = pokemon {
-                        pokemonsList.append(pokemon)
-    //                    Conection().getSprite(with: pokemon.sprites?.front_default ?? "") {
-    //                        image in
-    //
-    //                        print("Se añade a: \(pokemon.name!)")
-    //                        DispatchQueue.main.async {
-    //                            self.viewController.self.refreshList(pokemon: pokemon)
-    //                        }
-    //
-    //                    }
+                        self.pokemonsDownLoad += 1
+                        self.pokemonsList.append(pokemon)
                         
                     } else {
-                        print("Algo está fallando con id: \(id)")
+                        self.pokemonsDownLoad += 1
                         
                     }
+                    //Función de control de progreso
                     self.progressUpdateOnlyForGlobalThread(Float(id))
                     
                 }
             }
+        //Se lanza un hilo que espera a la descarga de todos los pokemons solicitados.
+        whaitForAllDownloads()
         
-        //Se declara un hilo con retardo para esperar a la carga de la información
-        DispatchQueue.global().asyncAfter(deadline: .now() + 5) {
-            self.refreshListPokemonsOnlyForGlobalThread(pokemonsList: pokemonsList)
+    }
+    
+    //Función para reiniciar contadores o mostrar el resultado final
+    func startStop(_ stop: Bool = false) {
+        if !stop {//Start
+            indicatorLabel.text = "0"
+            progressBar.progress = 0
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
+            loadLabel.text = "Cargando Pokemons..."
+            
+        } else {//Stop
+            activityIndicator.isHidden = true
+            activityIndicator.stopAnimating()
+            myTableView.isHidden = false
+            loadLabel.text = "Pokemons cargados!"
+            indicatorLabel.text = "\(pokemonsList.count)"
+            
+        }
+    }
+
+    //Función para esperar a que todos los pokemon esperados estén descarados
+    func whaitForAllDownloads() {
+        //Se carga en un hilo de ejecución en global y se abre un bucle, con un segundo de pausa por cada iteración, para esperar a tenerlos todos
+        DispatchQueue.global().async {
+            repeat {
+                if self.pokemonsDownLoad >= self.ID_POKEMON_MAX  && !self.CompleteDownload{
+                    self.refreshListPokemonsOnlyForGlobalThread(pokemonsList: self.pokemonsList)
+                    self.CompleteDownload = true
+
+                }
+                //Para que no haya un bucle haciendo iteraciones sin sentido se pausa un segunda en cada una de ellas.
+                sleep(1)
+            } while !self.CompleteDownload
             
         }
     }
     
-    
-    func startStop(_ stop: Bool = false) {
-        if !stop {
-            indicatorLabel.text = "0"
-            activityIndicator.isHidden = false
-            activityIndicator.startAnimating()
-            loadLabel.text = "Cargando Pokemons"
-        } else {
-            activityIndicator.isHidden = true
-            activityIndicator.stopAnimating()
-            self.myTableView.isHidden = false
-            loadLabel.text = "Pokemons cargados"
-        }
-    }
-    
+    //Función para el control del progreso
     func progressUpdateOnlyForGlobalThread(_ n: Float) {
         //  Se calcula el porcentaje con el número del usuario
         if progressUpdate < 100.0 {
@@ -94,41 +112,42 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    //Función para proceder a cargar la lista en la tabla ¡¡SOLO SE DEBE UTILIZAR DESDE UN HILO SECUNDARIO!!!
     func refreshListPokemonsOnlyForGlobalThread(pokemonsList: Array<Pokemon>) {
-        /**
-         students.sort { (lhs: String, rhs: String) -> Bool in
-             return lhs > rhs
-         }
-         */
-        self.pokemonsList = pokemonsList
+        
         self.pokemonsList.sort { (uno: Pokemon, dos: Pokemon) in
             return uno.id! < dos.id!
+            
         }
         
-        
+        //Se abre un hilo en main para realizar el reload
         DispatchQueue.main.async {
-            print("Reloading")
             self.myTableView.reloadData()
             self.startStop(true)
+            
         }
     }
     
+    //#############################################################Métodos própios de la tabla
+    //
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(!isEditing, animated: true)
-        
         myTableView.setEditing(!myTableView.isEditing, animated: true)
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
+        
     }
     
     func tableView(_ myTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pokemonsList.count
+        
     }
     
     func tableView(_ myTableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //Se carga la celda personalizada
         let cell: PokemonTableViewCell = myTableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
         as! PokemonTableViewCell
         
@@ -140,6 +159,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let id: Int = pokemon.id {
             if let name: String = pokemon.name {
                 cell.pokemonName.text = ("ID: \(id), Nombre \(name)")
+                
             }
         }
         
@@ -147,10 +167,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let url = URL(string: pokemon.sprites?.front_default ?? "") {
             if let data = try? Data(contentsOf: url) {
                 cell.pokemonImage.image = UIImage(data: data)
+                
             }
         }
-        
-        indicatorLabel.text = "\(pokemonsList.count)"
         
         return cell
         
