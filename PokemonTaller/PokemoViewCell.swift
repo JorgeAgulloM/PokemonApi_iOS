@@ -1,5 +1,5 @@
 //
-//  PokemonCell.swift
+//  PokemoViewCell.swift
 //  PokemonTaller
 //
 //  Created by Jorge Agullo Martin on 9/3/22.
@@ -7,19 +7,8 @@
 
 import UIKit
 
-protocol MyCellDelegate {
-    func callPressed(name: String)
-}
+class PokemoViewCell: UITableViewCell {
 
-class PokemonCell: UITableViewCell {
-
-    @IBOutlet weak var imagePokemon: UIImageView!
-    @IBOutlet weak var namePokemon: UILabel!
-    var delegate: MyCellDelegate?
-    
-    
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

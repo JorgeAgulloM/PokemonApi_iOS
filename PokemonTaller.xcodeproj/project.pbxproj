@@ -18,6 +18,8 @@
 		115A88DB27D89D3E003E6CFD /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A88DA27D89D3E003E6CFD /* Sprite.swift */; };
 		115A88DD27D89DE8003E6CFD /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A88DC27D89DE8003E6CFD /* PokemonCell.swift */; };
 		115A88DF27D8A6DE003E6CFD /* Connexion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A88DE27D8A6DE003E6CFD /* Connexion.swift */; };
+		115A88E527D8D593003E6CFD /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A88E427D8D593003E6CFD /* MyTableViewController.swift */; };
+		115A88E727D90BA4003E6CFD /* Pokemon Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 115A88E627D90BA4003E6CFD /* Pokemon Solid.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		115A88DA27D89D3E003E6CFD /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
 		115A88DC27D89DE8003E6CFD /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
 		115A88DE27D8A6DE003E6CFD /* Connexion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connexion.swift; sourceTree = "<group>"; };
+		115A88E427D8D593003E6CFD /* MyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
+		115A88E627D90BA4003E6CFD /* Pokemon Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon Solid.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 		115A88C127D89A34003E6CFD /* PokemonTaller */ = {
 			isa = PBXGroup;
 			children = (
+				115A88E627D90BA4003E6CFD /* Pokemon Solid.ttf */,
 				115A88C227D89A34003E6CFD /* AppDelegate.swift */,
 				115A88C427D89A34003E6CFD /* SceneDelegate.swift */,
 				115A88C627D89A34003E6CFD /* ViewController.swift */,
@@ -78,6 +83,7 @@
 				115A88DA27D89D3E003E6CFD /* Sprite.swift */,
 				115A88DC27D89DE8003E6CFD /* PokemonCell.swift */,
 				115A88DE27D8A6DE003E6CFD /* Connexion.swift */,
+				115A88E427D8D593003E6CFD /* MyTableViewController.swift */,
 			);
 			path = PokemonTaller;
 			sourceTree = "<group>";
@@ -141,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				115A88CF27D89A36003E6CFD /* LaunchScreen.storyboard in Resources */,
+				115A88E727D90BA4003E6CFD /* Pokemon Solid.ttf in Resources */,
 				115A88CC27D89A36003E6CFD /* Assets.xcassets in Resources */,
 				115A88CA27D89A34003E6CFD /* Main.storyboard in Resources */,
 			);
@@ -153,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				115A88E527D8D593003E6CFD /* MyTableViewController.swift in Sources */,
 				115A88D927D89C9A003E6CFD /* Pokemon.swift in Sources */,
 				115A88C727D89A34003E6CFD /* ViewController.swift in Sources */,
 				115A88C327D89A34003E6CFD /* AppDelegate.swift in Sources */,
