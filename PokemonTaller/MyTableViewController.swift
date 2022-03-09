@@ -53,8 +53,10 @@ class MyTableViewController: UITableViewController {
 
         // Configure the cell...
         if let pokemon = pokemons[indexPath.row] {
-            cell.namePokemon.font = UIFont(name: "Pokemon Solid", size: 20)
+            cell.namePokemon.font = UIFont(name: "Pokemon Solid", size: 25)
             cell.namePokemon.text = pokemon.name ?? "Desconocido"
+            
+            cell.namePokemon.textColor = .red
         }
         
         if let image = images[indexPath.row] {
@@ -134,6 +136,19 @@ class MyTableViewController: UITableViewController {
                         }
                     }
                 }
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToDetailSegue" {
+            if let detailVC = segue.destination as? DetailViewController ,
+               let indexPath = tableView.indexPathForSelectedRow,
+               let pokemon = pokemons[indexPath.row],
+               let image = images[indexPath.row] {
+                detailVC.pokemonImage = image
+                detailVC.pokemon = pokemon
+                
             }
         }
     }

@@ -19,6 +19,8 @@
 		115A88DD27D89DE8003E6CFD /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A88DC27D89DE8003E6CFD /* PokemonCell.swift */; };
 		115A88DF27D8A6DE003E6CFD /* Connexion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A88DE27D8A6DE003E6CFD /* Connexion.swift */; };
 		115A88E927D915BF003E6CFD /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A88E827D915BF003E6CFD /* MyTableViewController.swift */; };
+		115A88EB27D94AAE003E6CFD /* Pokemon Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 115A88EA27D94AAE003E6CFD /* Pokemon Solid.ttf */; };
+		115A88ED27D94B57003E6CFD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A88EC27D94B57003E6CFD /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		115A88DC27D89DE8003E6CFD /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
 		115A88DE27D8A6DE003E6CFD /* Connexion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connexion.swift; sourceTree = "<group>"; };
 		115A88E827D915BF003E6CFD /* MyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
+		115A88EA27D94AAE003E6CFD /* Pokemon Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon Solid.ttf"; sourceTree = "<group>"; };
+		115A88EC27D94B57003E6CFD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 				115A88DC27D89DE8003E6CFD /* PokemonCell.swift */,
 				115A88DE27D8A6DE003E6CFD /* Connexion.swift */,
 				115A88E827D915BF003E6CFD /* MyTableViewController.swift */,
+				115A88EA27D94AAE003E6CFD /* Pokemon Solid.ttf */,
+				115A88EC27D94B57003E6CFD /* DetailViewController.swift */,
 			);
 			path = PokemonTaller;
 			sourceTree = "<group>";
@@ -144,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				115A88CF27D89A36003E6CFD /* LaunchScreen.storyboard in Resources */,
+				115A88EB27D94AAE003E6CFD /* Pokemon Solid.ttf in Resources */,
 				115A88CC27D89A36003E6CFD /* Assets.xcassets in Resources */,
 				115A88CA27D89A34003E6CFD /* Main.storyboard in Resources */,
 			);
@@ -163,6 +170,7 @@
 				115A88E927D915BF003E6CFD /* MyTableViewController.swift in Sources */,
 				115A88C527D89A34003E6CFD /* SceneDelegate.swift in Sources */,
 				115A88DB27D89D3E003E6CFD /* Sprite.swift in Sources */,
+				115A88ED27D94B57003E6CFD /* DetailViewController.swift in Sources */,
 				115A88DD27D89DE8003E6CFD /* PokemonCell.swift in Sources */,
 				115A88D727D89A81003E6CFD /* Mappable.swift in Sources */,
 			);
@@ -319,7 +327,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -348,7 +356,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
