@@ -18,6 +18,7 @@
 		115A88DB27D89D3E003E6CFD /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A88DA27D89D3E003E6CFD /* Sprite.swift */; };
 		115A88DD27D89DE8003E6CFD /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A88DC27D89DE8003E6CFD /* PokemonCell.swift */; };
 		115A88DF27D8A6DE003E6CFD /* Connexion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A88DE27D8A6DE003E6CFD /* Connexion.swift */; };
+		115A88E927D915BF003E6CFD /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A88E827D915BF003E6CFD /* MyTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		115A88DA27D89D3E003E6CFD /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
 		115A88DC27D89DE8003E6CFD /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
 		115A88DE27D8A6DE003E6CFD /* Connexion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connexion.swift; sourceTree = "<group>"; };
+		115A88E827D915BF003E6CFD /* MyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				115A88DA27D89D3E003E6CFD /* Sprite.swift */,
 				115A88DC27D89DE8003E6CFD /* PokemonCell.swift */,
 				115A88DE27D8A6DE003E6CFD /* Connexion.swift */,
+				115A88E827D915BF003E6CFD /* MyTableViewController.swift */,
 			);
 			path = PokemonTaller;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				115A88C727D89A34003E6CFD /* ViewController.swift in Sources */,
 				115A88C327D89A34003E6CFD /* AppDelegate.swift in Sources */,
 				115A88DF27D8A6DE003E6CFD /* Connexion.swift in Sources */,
+				115A88E927D915BF003E6CFD /* MyTableViewController.swift in Sources */,
 				115A88C527D89A34003E6CFD /* SceneDelegate.swift in Sources */,
 				115A88DB27D89D3E003E6CFD /* Sprite.swift in Sources */,
 				115A88DD27D89DE8003E6CFD /* PokemonCell.swift in Sources */,
