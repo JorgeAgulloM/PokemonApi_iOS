@@ -12,4 +12,14 @@ class Pokemon: Mappable {
     var name: String?
     var order: Int?
     var sprites: Sprite?
+    var isDefault: Bool?
+    
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case order
+        case sprites
+        case isDefault = "is_default"
+    }
+    
 }

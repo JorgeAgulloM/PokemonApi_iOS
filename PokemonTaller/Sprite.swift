@@ -8,6 +8,11 @@
 import Foundation
 
 class Sprite: Mappable {
-    var back_default: String?
-    var front_default: String?
+    var backDefault: String?
+    var frontDefault: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case backDefault = "back_default"
+        case frontDefault = "front_default"
+    }
 }

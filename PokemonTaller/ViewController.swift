@@ -33,7 +33,7 @@ class ViewController: UIViewController {
                     self.namePokemon.text = pokemon.name
                 }
                 
-                Connection().getSprite(withUrl: pokemon.sprites?.front_default ?? "" ) {
+                Connection().getSprite(withUrl: pokemon.sprites?.frontDefault ?? "" ) {
                     sprite in
                     if let sprite = sprite {
                         DispatchQueue.main.async {
