@@ -10,7 +10,7 @@ import Foundation
 class Sprite: Mappable {
     var back_default: String?
     var front_default: String?
-    var other: Other?
+    var other: Other?//sin esta
 }
 
 class Other: Mappable {

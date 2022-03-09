@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class Conection {
+class Connection {
     let URL_BASE: String = "https://pokeapi.co/api/v2/"
     
     func getPokemon(withId id: Int, completion: @escaping (_ pokemon: Pokemon?) -> Void) {
@@ -43,13 +43,13 @@ class Conection {
         let task = urlSession.dataTask(with: url) {
             data, respose, error in
             
-            if (respose as! HTTPURLResponse).statusCode == 200 { }
-            
-            if error == nil, let data = data {
-                completion(UIImage(data: data))
-            } else {
-                completion(nil)
-                return
+            if (respose as! HTTPURLResponse).statusCode == 200 {
+                if error == nil, let data = data {
+                    completion(UIImage(data: data))
+                } else {
+                    completion(nil)
+                    return
+                }
             }
         }
         task.resume()

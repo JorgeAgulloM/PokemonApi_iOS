@@ -10,9 +10,9 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MyCellDelegate {
     
     @IBOutlet weak var loadLabel: UILabel!
+    @IBOutlet weak var indicatorLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var progressBar: UIProgressView!
-    @IBOutlet weak var indicatorLabel: UILabel!
     @IBOutlet weak var myTableView: UITableView!
     
     var progressUpdate: Float = 0
@@ -41,24 +41,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //Función de puesta a 0
         startStop()
             for id in 1...self.ID_POKEMON_MAX {
-                Conection().getPokemon(withId: id) {
+                Connection().getPokemon(withId: id) {
                     pokemon in
                     
                     if let pokemon = pokemon {
-                        self.pokemonsDownLoad += 1
                         self.pokemonsList.append(pokemon)
+                        self.pokemonsDownLoad += 1
                         
                     } else {
                         self.pokemonsDownLoad += 1
-                        
+                    
                     }
+                    
                     //Función de control de progreso
                     self.progressUpdateOnlyForGlobalThread(Float(id))
                     
                 }
             }
         //Se lanza un hilo que espera a la descarga de todos los pokemons solicitados.
-        whaitForAllDownloads()
+        waitForAllDownloads()
         
     }
     
@@ -82,7 +83,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     //Función para esperar a que todos los pokemon esperados estén descarados
-    func whaitForAllDownloads() {
+    func waitForAllDownloads() {
         //Se carga en un hilo de ejecución en global y se abre un bucle, con un segundo de pausa por cada iteración, para esperar a tenerlos todos
         DispatchQueue.global().async {
             repeat {
@@ -170,6 +171,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
             }
         }
+        
+        print("Pokemons \(pokemonsList.count)")
         
         return cell
         
