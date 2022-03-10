@@ -61,9 +61,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="npD-Z5-cO1" secondAttribute="trailing" constant="39" id="24S-cm-XNM"/>
                             <constraint firstItem="Lze-sM-Mj9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="3iq-LG-eQy"/>
                             <constraint firstItem="QDh-Md-sgM" firstAttribute="top" secondItem="Lze-sM-Mj9" secondAttribute="bottom" constant="8" id="4qt-LK-rrq"/>
-                            <constraint firstItem="npD-Z5-cO1" firstAttribute="leading" secondItem="QDh-Md-sgM" secondAttribute="trailing" constant="8" id="8KJ-Fl-IcH"/>
+                            <constraint firstItem="npD-Z5-cO1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QDh-Md-sgM" secondAttribute="trailing" symbolic="YES" id="8KJ-Fl-IcH"/>
+                            <constraint firstItem="gkF-4C-d4L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="CgB-R6-g6o"/>
                             <constraint firstItem="QDh-Md-sgM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Nt3-nj-p8l"/>
                             <constraint firstItem="npD-Z5-cO1" firstAttribute="centerY" secondItem="QDh-Md-sgM" secondAttribute="centerY" id="dml-yz-BcM"/>
                             <constraint firstItem="aYs-7w-8tA" firstAttribute="centerX" secondItem="QDh-Md-sgM" secondAttribute="centerX" id="g1H-ei-Nra"/>
@@ -90,10 +92,12 @@
         <scene sceneID="yg2-G4-Chc">
             <objects>
                 <tableViewController id="uzl-ta-lG8" customClass="MyTableViewController" customModule="PokemonTaller" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="BZU-Uu-2HK">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="BZU-Uu-2HK">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="systemRedColor"/>
+                        <color key="sectionIndexBackgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="4Hg-xZ-0he" customClass="PokemonCell" customModule="PokemonTaller" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="120.33333587646484"/>
@@ -109,7 +113,7 @@
                                                 <constraint firstAttribute="width" constant="120" id="kPp-T9-q7f"/>
                                             </constraints>
                                         </imageView>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" id="EOG-Hm-N6b">
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" id="EOG-Hm-N6b">
                                             <rect key="frame" x="36" y="40.5" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="color" systemColor="systemRedColor"/>
@@ -138,7 +142,6 @@
                                     <outlet property="imagePokemon" destination="9oz-Hf-89U" id="ycC-nW-NHx"/>
                                     <outlet property="loadPokemon" destination="EOG-Hm-N6b" id="v1o-Y8-JVD"/>
                                     <outlet property="namePokemon" destination="yU3-OO-VUk" id="d2A-Ay-mwI"/>
-                                    <segue destination="Kye-os-yfc" kind="show" identifier="goToDetailSegue" id="KrW-xg-VAS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -147,11 +150,93 @@
                             <outlet property="delegate" destination="uzl-ta-lG8" id="WZi-al-Phz"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ZlV-aw-LEf"/>
+                    <navigationItem key="navigationItem" id="ZlV-aw-LEf">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Add" id="iFY-KP-BqL">
+                                <connections>
+                                    <segue destination="eSG-hS-XHH" kind="show" identifier="savePokemon" id="GVX-NJ-eO6"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Edit" id="DCi-fP-tW6">
+                                <connections>
+                                    <action selector="setEditmode:" destination="uzl-ta-lG8" id="PeH-hN-ryv"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Delete" id="8Ee-rf-Rhn">
+                                <connections>
+                                    <action selector="DeleteRowSelected:" destination="uzl-ta-lG8" id="Toq-wj-eKh"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="deleteBarButton" destination="8Ee-rf-Rhn" id="GPs-l2-acL"/>
+                        <outlet property="editBarButton" destination="DCi-fP-tW6" id="7LA-gV-hEV"/>
+                        <segue destination="Kye-os-yfc" kind="show" identifier="goToDetailSegue" id="aBx-Lr-bH8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pDY-xe-Taz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1855.072463768116" y="107.8125"/>
+        </scene>
+        <!--Add Pokemon-->
+        <scene sceneID="OjW-DL-dSu">
+            <objects>
+                <viewController id="eSG-hS-XHH" customClass="AddViewController" customModule="PokemonTaller" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CG6-lN-rAM">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Introduce el nombre del nuevo Pokemon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7JN-lO-A8o">
+                                <rect key="frame" x="24" y="104" width="380" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="IWH-yn-bmv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wol-mK-jMs">
+                                <rect key="frame" x="24" y="133" width="380" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="qRt-2a-82Z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cB3-Ea-rKE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7JN-lO-A8o" firstAttribute="top" secondItem="cB3-Ea-rKE" secondAttribute="top" constant="16" id="9OV-3s-VuA"/>
+                            <constraint firstItem="cB3-Ea-rKE" firstAttribute="trailing" secondItem="Wol-mK-jMs" secondAttribute="trailing" constant="24" id="AoG-ah-pJb"/>
+                            <constraint firstItem="Wol-mK-jMs" firstAttribute="top" secondItem="7JN-lO-A8o" secondAttribute="bottom" constant="8" id="KiL-5z-RyK"/>
+                            <constraint firstItem="7JN-lO-A8o" firstAttribute="leading" secondItem="cB3-Ea-rKE" secondAttribute="leading" constant="24" id="Rhp-w8-rLU"/>
+                            <constraint firstItem="Wol-mK-jMs" firstAttribute="leading" secondItem="cB3-Ea-rKE" secondAttribute="leading" constant="24" id="T01-Vj-oVI"/>
+                            <constraint firstItem="cB3-Ea-rKE" firstAttribute="trailing" secondItem="7JN-lO-A8o" secondAttribute="trailing" constant="24" id="U8O-f5-5Jm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Pokemon" id="3hV-Ht-iNt">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="aJQ-vN-DKo">
+                            <connections>
+                                <action selector="cancel:" destination="xFF-37-Wgz" id="GRI-lH-0r8"/>
+                                <segue destination="HG6-5A-Rcv" kind="unwind" unwindAction="cancelWithSegue:" id="EaS-wG-fJT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="lm1-f9-3Wv">
+                            <connections>
+                                <segue destination="HG6-5A-Rcv" kind="unwind" identifier="savePokemon" unwindAction="saveWithSegue:" id="6Pi-M3-33Q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pokemonNameTextField" destination="Wol-mK-jMs" id="awI-JY-u1i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xFF-37-Wgz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="HG6-5A-Rcv" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2850" y="-206.04751619870413"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="49U-0P-drI">
@@ -194,6 +279,28 @@
                                     <constraint firstAttribute="height" constant="31" id="Mor-ZK-NWi"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woM-PO-hPd">
+                                <rect key="frame" x="101" y="547" width="226" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="6lG-Pw-BCu"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Compartir nombre de pokemon"/>
+                                <connections>
+                                    <action selector="shareNamePokemon:" destination="Kye-os-yfc" eventType="touchUpInside" id="bUu-dp-dSZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGy-01-n1N">
+                                <rect key="frame" x="101" y="599" width="226" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="GHD-3f-WDF"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Compartir imagen de pokemon"/>
+                                <connections>
+                                    <action selector="shareImagePokemon:" destination="Kye-os-yfc" eventType="touchUpInside" id="mcc-23-8xO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oOR-mg-Cpv"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -201,11 +308,17 @@
                             <constraint firstItem="IMn-mS-116" firstAttribute="leading" secondItem="oOR-mg-Cpv" secondAttribute="leading" constant="36" id="2Av-rr-84c"/>
                             <constraint firstItem="u1p-cJ-LrQ" firstAttribute="top" secondItem="AbC-fV-jSG" secondAttribute="bottom" constant="24" id="38q-I6-iJj"/>
                             <constraint firstItem="IMn-mS-116" firstAttribute="top" secondItem="u1p-cJ-LrQ" secondAttribute="bottom" constant="8" id="Bam-sh-beb"/>
+                            <constraint firstItem="lGy-01-n1N" firstAttribute="leading" secondItem="oOR-mg-Cpv" secondAttribute="leading" constant="101" id="CLL-f9-wX4"/>
                             <constraint firstItem="u1p-cJ-LrQ" firstAttribute="leading" secondItem="oOR-mg-Cpv" secondAttribute="leading" constant="20" id="EMF-io-hlm"/>
                             <constraint firstItem="AbC-fV-jSG" firstAttribute="centerX" secondItem="qgL-es-V1V" secondAttribute="centerX" id="H0u-TL-u03"/>
+                            <constraint firstItem="oOR-mg-Cpv" firstAttribute="trailing" secondItem="lGy-01-n1N" secondAttribute="trailing" constant="101" id="Iw7-Zx-IQv"/>
                             <constraint firstItem="AbC-fV-jSG" firstAttribute="top" secondItem="oOR-mg-Cpv" secondAttribute="top" constant="20" id="SQv-y4-HEZ"/>
+                            <constraint firstItem="woM-PO-hPd" firstAttribute="leading" secondItem="oOR-mg-Cpv" secondAttribute="leading" constant="101" id="WSt-Rc-Zdl"/>
                             <constraint firstItem="oOR-mg-Cpv" firstAttribute="trailing" secondItem="u1p-cJ-LrQ" secondAttribute="trailing" constant="20" id="bxF-N6-25D"/>
+                            <constraint firstItem="lGy-01-n1N" firstAttribute="top" secondItem="woM-PO-hPd" secondAttribute="bottom" constant="16" id="eo4-wX-ls4"/>
                             <constraint firstItem="oOR-mg-Cpv" firstAttribute="trailing" secondItem="IMn-mS-116" secondAttribute="trailing" constant="36" id="evf-9R-Mcp"/>
+                            <constraint firstItem="woM-PO-hPd" firstAttribute="top" secondItem="IMn-mS-116" secondAttribute="bottom" constant="36" id="lGT-Ub-1Fj"/>
+                            <constraint firstItem="oOR-mg-Cpv" firstAttribute="trailing" secondItem="woM-PO-hPd" secondAttribute="trailing" constant="101" id="shK-lL-aW6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="VnH-ac-QSy"/>
@@ -217,7 +330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FDR-bF-N1r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2812.1495327102803" y="-159.3952483801296"/>
+            <point key="canvasLocation" x="2850" y="449"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="m9h-wk-qkp">
@@ -242,6 +355,9 @@
         <image name="arrowshape.turn.up.backward.fill" catalog="system" width="128" height="106"/>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
         <image name="pokeBall" width="1041" height="1041"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

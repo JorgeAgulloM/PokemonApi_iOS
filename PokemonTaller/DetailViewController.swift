@@ -39,7 +39,31 @@ class DetailViewController: UIViewController {
         }
     }
     
-
+    @IBAction func shareNamePokemon(_ sender: UIButton) {
+        
+        let text = [self.namePokemon.text]
+        
+        let activityViewController = UIActivityViewController(activityItems: text as [Any], applicationActivities: nil)
+        
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        
+        activityViewController.excludedActivityTypes = [.airDrop, .postToFlickr, .postToFacebook]
+        
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func shareImagePokemon(_ sender: UIButton) {
+        
+        let image = [self.imagePokemon.image]
+        
+        let activityViewController = UIActivityViewController(activityItems: image as [Any], applicationActivities: nil)
+        
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        
+        activityViewController.excludedActivityTypes = [.postToFlickr, .postToFacebook]
+        
+        self.present(activityViewController, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
